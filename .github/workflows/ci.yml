@@ -1,0 +1,24 @@
+name: Docs-as-Code Quality Check
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  validate-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Lint Threat Matrix Markdown
+        uses: avto-dev/markdown-lint-check-action@v1
+        with:
+          files: 'docs/**/*.md'
+
+      - name: Execute THR-03 Acceptance Test
+        run: |
+          chmod +x src/cgos_access_check.sh
+          ./src/cgos_access_check.sh
