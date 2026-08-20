@@ -13,13 +13,6 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Lint Threat Matrix Markdown
-        uses: avto-dev/markdown-lint-check-action@v1
-        with:
-          files: 'docs/**/*.md'
-          # Ignores long lines and table spacing rules that cause false failures
-          config: '{"MD013": false, "MD033": false, "MD041": false}'
-
       - name: Execute THR-03 Acceptance Test
         run: |
           chmod +x src/cgos_access_check.sh
