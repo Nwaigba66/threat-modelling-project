@@ -1,0 +1,13 @@
+# .github/CODEOWNERS
+
+# Global default owner for all files in the repository
+*                   @Nwaigba66
+
+# Security team owns threat models and compliance docs
+/docs/security/     @Nwaigba66
+
+# Specific Rule: Overrides the global rule for the /src/firmware/ folder
+/src/firmware/          @embedded-dev-team
+
+# Workflows and CI/CD pipelines
+/.github/workflows/ @Nwaigba66
