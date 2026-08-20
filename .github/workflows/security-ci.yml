@@ -7,15 +7,13 @@ on:
     branches: [ master ]
 
 jobs:
-  # -------------------------------------------------------------
-  # JOB 1: Software Composition Analysis (SCA) - 3rd Party Check
-  # -------------------------------------------------------------
   sca-dependency-scan:
     name: SCA Vulnerability Scan (Trivy)
     runs-on: ubuntu-latest
     permissions:
       security-events: write
       contents: read
+      
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -32,25 +30,3 @@ jobs:
         uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: 'trivy-results.sarif'
-
-  # -------------------------------------------------------------
-  # JOB 2: Static Application Security Testing (SAST) - CodeScan
-  # -------------------------------------------------------------
- #  sast-code-scan:
- #    name: SAST Code Analysis (CodeQL)
- #    runs-on: ubuntu-latest
- #    permissions:
- #      security-events: write
- #      contents: read
-
- #    steps:
- #      - name: Checkout Code
- #        uses: actions/checkout@v4
-
- #      - name: Initialize CodeQL (SAST Engine)
- #        uses: github/codeql-action/init@v3
- #        with:
- #          languages: 'cpp' # Change to 'python' or 'javascript' if C/C++ is not used
-
-  #     - name: Perform CodeQL SAST Analysis
-  #       uses: github/codeql-action/analyze@v3
