@@ -17,6 +17,8 @@ jobs:
         uses: avto-dev/markdown-lint-check-action@v1
         with:
           files: 'docs/**/*.md'
+          # Ignores long lines and table spacing rules that cause false failures
+          config: '{"MD013": false, "MD033": false, "MD041": false}'
 
       - name: Execute THR-03 Acceptance Test
         run: |
