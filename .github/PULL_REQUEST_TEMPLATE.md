@@ -1,14 +1,16 @@
-## Security Review Checklist (OWASP ASVS & IEC 62443-4-1 Alignment)
+## Description
+<!-- Provide a brief description of the changes introduced in this PR -->
 
-### 1. Threats & Requirements Traceability
-- [ ] This PR addresses Jira Ticket: `SEC-XXX`
-- [ ] Mapped to Threat Matrix ID: `THR-XXX` inside `docs/security/stride-matrix.md`
+## Threat Model & Security Compliance
+- [ ] Mapped against **STRIDE** categories (THR-01 through THR-04).
+- [ ] Compliance verified (**IEC 62443-4-2** / **NIST SP 800-53**).
+- [ ] No hardcoded credentials or secrets introduced.
 
-### 2. OWASP ASVS Controls
-- [ ] **ASVS V5 (Input Validation):** All incoming variables and buffers are checked for length and type bounds.
-- [ ] **ASVS V6 (Cryptography):** Cryptographic keys use strong algorithms (e.g., AES-256, RSA-4096) and are stored in HSM/TPM.
-- [ ] **ASVS V14 (Build & Pipeline):** Dependabot/Trivy SCA scanners report no Critical/High CVEs in dependencies.
+## Verification & Acceptance Criteria
+- [ ] Executed local test script (`./src/cgos_access_check.sh`).
+- [ ] Verified GitHub Actions CI workflows pass locally or on fork.
 
-### 3. Verification & Evidence
-- [ ] SAST / CodeQL build checks passed in GitHub Actions pipeline.
-- [ ] Approved by designated Code Owner (`CODEOWNERS`).
+## Type of Change
+- [ ] Fix (non-breaking change fixing an issue/linter failure)
+- [ ] Feature (non-breaking change adding documentation/tests)
+- [ ] Security Gate / Compliance Update
