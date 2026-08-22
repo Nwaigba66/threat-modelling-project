@@ -1,4 +1,4 @@
-# congatec COM-HPC Mini Hardware/Software Threat Model
+#  Hardware/Software Threat Model
 
 ![Docs Quality Check](https://github.com/Nwaigba66/threat-modelling-project/actions/workflows/ci.yml/badge.svg?branch=master)
 ![IEC 62443 Security Gate](https://github.com/Nwaigba66/threat-modelling-project/actions/workflows/security-ci.yml/badge.svg?branch=master)
@@ -33,4 +33,4 @@ You can run the driver permission test script locally on Linux:
 
 ```bash
 chmod +x src/cgos_access_check.sh
-./src/cgos_access_check.sh
+./src/cgos_access_check.sh< Testing PR Template -->
